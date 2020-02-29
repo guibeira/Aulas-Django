@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html'%}
+{% block title%} 
+    Pagina da aula 4
+{% endblock %}
+{% block content %}
     <h1>Aula 4 do template do app</h1>
-</body>
-</html>
+    {% include 'aula4/lista.html' with items=alunos %}
+{% endblock %}
