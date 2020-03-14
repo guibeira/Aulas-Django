@@ -32,6 +32,6 @@ urlpatterns = [
     path('entrar', index7, name='login'),
     path('aula7/restrita', restrita),
     path('aula7/view-carrinho', permission_view),
-    path('aula7/sair', logout_view),
+    path('aula7/sair', logout_view, name="logout"),
     path('aula9', index9, name="aula9"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
