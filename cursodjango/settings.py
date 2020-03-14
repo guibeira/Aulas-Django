@@ -25,7 +25,7 @@ SECRET_KEY = 'm1^d!6_iy=j1hvr$m*w_(!dx)9lgjxs)v@4=bn8vwh!5-4gg_t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'aula6',
     'aula7',
     'aula8',
+    'aula9',
 ]
 
 MIDDLEWARE = [
