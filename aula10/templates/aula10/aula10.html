@@ -22,8 +22,9 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h3 class="text-center">
-				{{titulo|swap}} <br>
-				{{data_requisicao}}
+				{{titulo|swap|bold|safe}} <br>
+				{% show_custom_form %}
+				{% pega_pet_pelo_nome 'Bulma' as pet %}
 			</h3>
 		</div>
 	</div>
