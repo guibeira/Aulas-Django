@@ -70,6 +70,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'aula10.context_processors.total_pets',
+                'aula10.context_processors.data_requisicao',
             ],
         },
     },

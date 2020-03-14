@@ -27,7 +27,7 @@ from aula10.views import mostra_arquivo_estatico
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("aula3.urls")),
-    path('estatico', mostra_arquivo_estatico),
+    path('estatico', mostra_arquivo_estatico, name="aula10"),
     path('aula4', index),
     path('aula6', index6),
     path('aula6/<int:id>', editar_contato),
