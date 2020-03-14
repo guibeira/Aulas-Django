@@ -21,11 +21,13 @@ from aula4.views import index
 from aula6.views import index as index6, editar_contato
 from aula7.views import index as index7, restrita, logout_view, permission_view
 from aula9.views import index9
+from aula10.views import mostra_arquivo_estatico
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("aula3.urls")),
+    path('estatico', mostra_arquivo_estatico),
     path('aula4', index),
     path('aula6', index6),
     path('aula6/<int:id>', editar_contato),
