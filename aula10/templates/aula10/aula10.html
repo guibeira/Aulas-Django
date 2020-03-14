@@ -1,4 +1,5 @@
 {% load static %}
+{% load aula10_filters %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,7 +22,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h3 class="text-center">
-				{{titulo}} <br>
+				{{titulo|swap}} <br>
 				{{data_requisicao}}
 			</h3>
 		</div>
