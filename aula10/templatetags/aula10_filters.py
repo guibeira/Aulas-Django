@@ -10,6 +10,14 @@ register = template.Library()
 def swap(value):
     return value.swapcase()
 
+
+@register.filter
+def check_user(user):
+    if user.is_authenticated:
+        return f"<h1>Bem vindo {user}</h1>"
+    return "<h1>vc não é bem vindo</h1>"
+
+
 @register.filter
 @stringfilter
 def bold(value):
