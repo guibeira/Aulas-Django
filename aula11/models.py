@@ -87,3 +87,12 @@ class Destinatatio(Contato, Endereco, Auditoria):
 
 class Remetente(Endereco, Contato, Auditoria):
     cnpj = models.CharField(max_length=15)
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, related_name="profile", on_delete=models.CASCADE)
+    age = models.DateField(null=True, blank=True)
+    twitter = models.CharField(null=True, blank=True, max_length=60)
+
+    def __str__(self):
+        return self.user.username
