@@ -22,7 +22,7 @@ from aula6.views import index as index6, editar_contato
 from aula7.views import index as index7, restrita, logout_view, permission_view
 from aula9.views import index9
 from aula10.views import mostra_arquivo_estatico
-
+from aula11.views import aula11
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,4 +36,11 @@ urlpatterns = [
     path('aula7/view-carrinho', permission_view),
     path('aula7/sair', logout_view, name="logout"),
     path('aula9', index9, name="aula9"),
+    path('aula11', aula11, name="aula11"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
