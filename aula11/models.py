@@ -99,6 +99,6 @@ class UserProfile(models.Model):
 
 
 class Automovel(models.Model):
-    marca = models.CharField(max_lenght=30)
+    marca = models.CharField(max_length=30)
     modelo = models.CharField(max_length=30)
     slug = models.CharField(max_length=100)
