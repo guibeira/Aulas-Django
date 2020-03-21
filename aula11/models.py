@@ -96,3 +96,9 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class Automovel(models.Model):
+    marca = models.CharField(max_lenght=30)
+    modelo = models.CharField(max_length=30)
+    slug = models.CharField(max_length=100)
