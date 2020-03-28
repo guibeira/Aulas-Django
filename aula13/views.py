@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import UploadFileForm, UploadFileModelForm
+from .models import UploadFile
 # Create your views here.
 from django.conf import settings
 import os
@@ -24,9 +25,10 @@ def aula13_com_model_form(request):
         form = UploadFileModelForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-
+    files = UploadFile.objects.all()
     contexto = {
         "form": form,
+        "files": files,
     }
     return render(request, 'aula13/aula13.html', context=contexto)
 

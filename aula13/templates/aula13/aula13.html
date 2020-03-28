@@ -16,4 +16,10 @@ Pagina da aula 13
     </fieldset>
 </form>
 
+<br>
+{% for file in files %}
+<img src="{{file.file.url}}" alt="{{file.name}}">
+<br>
+{% endfor %}
+
 {% endblock %}
