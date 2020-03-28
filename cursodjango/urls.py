@@ -22,8 +22,8 @@ from aula6.views import index as index6, editar_contato
 from aula7.views import index as index7, restrita, logout_view, permission_view
 from aula9.views import index9
 from aula10.views import mostra_arquivo_estatico
-from aula11.views import aula11
-from aula13.views import aula13, aula13_com_model_form, aula13_session
+from aula11.views import aula11, PostDetailView
+from aula13.views import aula13, aula13_com_model_form, OlistRedirect, aula13_session
 
 
 urlpatterns = [
@@ -39,9 +39,8 @@ urlpatterns = [
     path('aula7/sair', logout_view, name="logout"),
     path('aula9', index9, name="aula9"),
     path('aula11', aula11, name="aula11"),
-    path('aula13', aula13, name="aula13"),
-    path('aula13-session', aula13_session, name="aula13-session"),
-    path('aula13-model', aula13_com_model_form, name="aula13-model"),
+    path('aula11/<str:slug>', PostDetailView.as_view()),
+    path('aula13', include("aula13.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

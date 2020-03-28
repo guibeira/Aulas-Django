@@ -1,9 +1,14 @@
 from django.shortcuts import render
+from django.views.generic.base import RedirectView
 from .forms import UploadFileForm, UploadFileModelForm
 from .models import UploadFile
 # Create your views here.
 from django.conf import settings
 import os
+
+
+class OlistRedirect(RedirectView):
+    url = "https://olist.com"
 
 
 def aula13(request):
@@ -41,6 +46,8 @@ def aula13_session(request):
         "ja_viu": ja_viu
     }
     return render(request, "aula13/session.html", context)
+
+
 
 
 def handle_uploaded_file(f):
