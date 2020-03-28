@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% block title%}
+Pagina da aula 13
+{% endblock %}
+{% block content %}
+<h1>Aula 13 </h1>
+<form id="" action="" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    
+    <fieldset>
+        <legend>Detalhes do Upload</legend>
+        {{form.as_p}}
+        <div>
+            <input name="submit" type="submit" value="Enviar">
+        </div>
+    </fieldset>
+</form>
+
+{% endblock %}
