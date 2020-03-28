@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+{% block title%}
+Pagina da aula 13 session 
+{% endblock %}
+{% block content %}
+<h1>Aula 13 session </h1>
+{% if ja_viu%}
+    <p>Vc ja acessou essa pagina</p>
+{% else %}
+    <p>Primeiro acesso</p>
+{% endif %}
+
+{% endblock %}

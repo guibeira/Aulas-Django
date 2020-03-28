@@ -139,3 +139,6 @@ INTERNAL_IPS = [
     'localhost',
     '127.0.0.1',
 ]
+
+
+SESSION_ENGINE="django.contrib.sessions.backends.signed_cookies"
