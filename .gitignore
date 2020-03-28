@@ -8,6 +8,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 .env
+.my_env
 db.sqlite3
 .vscode
 # C extensions
