@@ -5,6 +5,9 @@ from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from django.forms.models import model_to_dict
 from rest_framework import serializers
+from .models import Loja
+from .serializer import LojaSerializer
+from rest_framework.generics import ListAPIView, CreateAPIView
 # Create your views here.
 
 
@@ -60,11 +63,7 @@ class UserViewset(MyGenericCreateAndList):
     serializer_class = UserSerializer
 
 
-from .models import Loja
-from .serializer import LojaSerializer
-from rest_framework.generics import ListAPIView, CreateAPIView
-
-class LojaViewSet(ListAPIView, CreateAPIView):
+class LojaViewSet(ListAPIView, CreateAPIView,):
     model = Loja
     queryset = Loja.objects.all()
     serializer_class = LojaSerializer
