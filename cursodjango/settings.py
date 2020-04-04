@@ -53,10 +53,12 @@ LOCAL_APPS = [
     'aula11',
     'aula12',
     'aula13',
+    'aula14',
 ]
 
 EXTERNAL_APPS = [
     'debug_toolbar',
+    'rest_framework',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + EXTERNAL_APPS

@@ -13,10 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+
+from rest_framework import routers
+
 from aula4.views import index
 from aula6.views import index as index6, editar_contato
 from aula7.views import index as index7, restrita, logout_view, permission_view
@@ -24,6 +28,11 @@ from aula9.views import index9
 from aula10.views import mostra_arquivo_estatico
 from aula11.views import aula11, PostDetailView
 from aula13.views import aula13, aula13_com_model_form, OlistRedirect, aula13_session
+from aula14.api import CarrosViewSet
+from aula14.views import aula14
+
+routes = routers.DefaultRouter()
+routes.register(r"carros", CarrosViewSet)
 
 
 urlpatterns = [
@@ -41,7 +50,14 @@ urlpatterns = [
     path('aula11', aula11, name="aula11"),
     path('aula11/<str:slug>', PostDetailView.as_view()),
     path('aula13', include("aula13.urls")),
+    path('aula14', aula14, name="aula14"),
+    # api
+    path('v1/', include(routes.urls))
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
 
 if settings.DEBUG:
     import debug_toolbar
