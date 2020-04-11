@@ -6,17 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('aula8', '0002_auto_20200307_1530'),
+        ("aula8", "0002_auto_20200307_1530"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='pet',
-            options={'ordering': ['ativo'], 'verbose_name': 'Animal', 'verbose_name_plural': 'Animais'},
+            name="pet",
+            options={
+                "ordering": ["ativo"],
+                "verbose_name": "Animal",
+                "verbose_name_plural": "Animais",
+            },
         ),
         migrations.AlterField(
-            model_name='pet',
-            name='ativo',
-            field=models.BooleanField(default=True, help_text='Pet ativo na plataforma'),
+            model_name="pet",
+            name="ativo",
+            field=models.BooleanField(
+                default=True, help_text="Pet ativo na plataforma"
+            ),
         ),
     ]

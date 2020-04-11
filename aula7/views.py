@@ -7,26 +7,26 @@ from django.urls import reverse, reverse_lazy
 from .forms import UserLoginForm
 
 
-@permission_required('aula5.add_carrinho', login_url=reverse_lazy("login"))
+@permission_required("aula5.add_carrinho", login_url=reverse_lazy("login"))
 def permission_view(request):
     return HttpResponse("view restrita para quem tem x permissão")
 
 
 def index(request):
-    next  = request.GET.get('next', reverse("login"))
+    next = request.GET.get("next", reverse("login"))
     form = UserLoginForm()
     if request.method == "POST":
         form = UserLoginForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
-            next  = request.POST.get('next', reverse("login"))
+            next = request.POST.get("next", reverse("login"))
             return HttpResponseRedirect(next)
     contexto = {
         "form": form,
         "next": next,
     }
-    return render(request, 'aula7/index7.html', context=contexto)
+    return render(request, "aula7/index7.html", context=contexto)
 
 
 @login_required()

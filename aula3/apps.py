@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class Aula3Config(AppConfig):
-    name = 'aula3'
+    name = "aula3"

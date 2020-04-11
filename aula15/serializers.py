@@ -5,8 +5,8 @@ from rest_framework import serializers
 
 class MyCustomSerializer(serializers.Serializer):
     choices = (
-        ('M', 'masculino'),
-        ('F', 'feminino'),
+        ("M", "masculino"),
+        ("F", "feminino"),
     )
 
     name = serializers.CharField(max_length=30)
@@ -18,27 +18,27 @@ class MyCustomSerializer(serializers.Serializer):
         return self.validated_data
 
     def validate_email(self, value):
-        if 'guilherme' in value.lower():
+        if "guilherme" in value.lower():
             raise serializers.ValidationError("Guilherme ta proibido!")
         return value
 
     def validate_text(self, value):
-        if 'babanao' in value.lower():
+        if "babanao" in value.lower():
             raise serializers.ValidationError("Seu boca suja!")
         return value
 
 
 class AddressSerializer(serializers.Serializer):
     choices = (
-        ('residencial', 'residencia'),
-        ('comercial', 'comercial'),
+        ("residencial", "residencia"),
+        ("comercial", "comercial"),
     )
     street = serializers.CharField(max_length=30)
     number = serializers.IntegerField()
     neighborhood = serializers.CharField(max_length=30)
     city = serializers.CharField(max_length=30)
     cowntry = serializers.CharField(max_length=2)
-    address_type = serializers.ChoiceField(choices) 
+    address_type = serializers.ChoiceField(choices)
 
 
 class ClientSerializer(serializers.Serializer):
@@ -51,14 +51,12 @@ class ClientSerializer(serializers.Serializer):
 
 
 class PersmissionSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Permission
         fields = "__all__"
 
 
 class UserSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = User
-        fields = "__all__" 
+        fields = "__all__"

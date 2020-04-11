@@ -11,6 +11,7 @@ class LojaSerializer(serializers.ModelSerializer):
 
 class CarrosSerializer(serializers.ModelSerializer):
     loja = LojaSerializer()
+
     class Meta:
         model = Carros
         fields = ["modelo", "marca", "loja", "ano"]

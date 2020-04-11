@@ -10,6 +10,5 @@ class CustomPostManager(Manager):
 
 
 class TecPostManager(CustomPostManager):
-
     def get_queryset(self):
-        return super().get_queryset().filter(categoria__nome='tecnologia')
+        return super().get_queryset().filter(categoria__nome="tecnologia")

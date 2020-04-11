@@ -7,24 +7,45 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('aula5', '0003_categoria_comentario_post'),
+        ("aula5", "0003_categoria_comentario_post"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Carrinho',
+            name="Carrinho",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('create_at', models.DateTimeField(auto_now_add=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("create_at", models.DateTimeField(auto_now_add=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Produto',
+            name="Produto",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome', models.CharField(max_length=30)),
-                ('preco', models.FloatField()),
-                ('carrinho', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='aula5.Carrinho')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nome", models.CharField(max_length=30)),
+                ("preco", models.FloatField()),
+                (
+                    "carrinho",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="aula5.Carrinho"
+                    ),
+                ),
             ],
         ),
     ]

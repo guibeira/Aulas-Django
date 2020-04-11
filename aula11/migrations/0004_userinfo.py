@@ -9,25 +9,33 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('auth', '0011_update_proxy_permissions'),
-        ('aula11', '0003_auto_20200321_1122'),
+        ("auth", "0011_update_proxy_permissions"),
+        ("aula11", "0003_auto_20200321_1122"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='UserInfo',
+            name="UserInfo",
             fields=[
-                ('user_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
-                ('bio', models.TextField()),
+                (
+                    "user_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                ("bio", models.TextField()),
             ],
             options={
-                'verbose_name': 'user',
-                'verbose_name_plural': 'users',
-                'abstract': False,
+                "verbose_name": "user",
+                "verbose_name_plural": "users",
+                "abstract": False,
             },
-            bases=('auth.user',),
-            managers=[
-                ('objects', django.contrib.auth.models.UserManager()),
-            ],
+            bases=("auth.user",),
+            managers=[("objects", django.contrib.auth.models.UserManager()),],
         ),
     ]

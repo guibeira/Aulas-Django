@@ -7,13 +7,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('aula13', '0001_initial'),
+        ("aula13", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='uploadfile',
-            name='file',
-            field=models.ImageField(upload_to='uploads', validators=[django.core.validators.FileExtensionValidator(allowed_extensions=['jpg'])]),
+            model_name="uploadfile",
+            name="file",
+            field=models.ImageField(
+                upload_to="uploads",
+                validators=[
+                    django.core.validators.FileExtensionValidator(
+                        allowed_extensions=["jpg"]
+                    )
+                ],
+            ),
         ),
     ]

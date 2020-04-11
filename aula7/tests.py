@@ -3,8 +3,8 @@ from django.urls import reverse
 
 # Create your tests here.
 
-class TestLogoutView(TestCase):
 
+class TestLogoutView(TestCase):
     def setUp(self):
         self.url = reverse("logout")
 

@@ -17,7 +17,7 @@ class SoftDelete(models.Model):
     class Meta:
         abstract = True
 
-        
+
 class Auditoria(models.Model):
     criado_em = models.DateTimeField(auto_now_add=True)
     atualizado_em = models.DateTimeField(auto_now=True)
@@ -28,14 +28,14 @@ class Auditoria(models.Model):
 
 class Categoria(Auditoria):
     nome = models.CharField(max_length=50)
-    
+
     def __str__(self):
         return self.nome
-    
+
     class Meta:
-        verbose_name = 'Categoria'
-        verbose_name_plural = 'Categorias'
-        ordering = ['nome']
+        verbose_name = "Categoria"
+        verbose_name_plural = "Categorias"
+        ordering = ["nome"]
 
 
 class Post(Auditoria, SoftDelete):
@@ -68,7 +68,7 @@ class Endereco(models.Model):
     numero = models.CharField(max_length=10)
     bairro = models.CharField(max_length=50)
     cidade = models.CharField(max_length=50)
-    estado = models.CharField(max_length=2) 
+    estado = models.CharField(max_length=2)
 
     class Meta:
         abstract = True

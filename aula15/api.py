@@ -11,7 +11,7 @@ class SerializerTestView(CreateAPIView):
     serializer_class = UserSerializer
 
     def get(self, request, *args, **kwargs):
-        return Response({'message': 'teje bem vinu!'})
+        return Response({"message": "teje bem vinu!"})
 
 
 class UserViewSet(viewsets.ModelViewSet):

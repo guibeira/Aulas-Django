@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 def index(request):
     html = f"<h1>Bem vindo à </h1>"
     response = HttpResponse(html, status=404)
-    response['ultimo_acesso'] = timezone.localtime(timezone.now())
+    response["ultimo_acesso"] = timezone.localtime(timezone.now())
     return response
 
 
@@ -18,7 +18,7 @@ def setacookie(request):
 
 
 def redireciona(request):
-    return HttpResponseRedirect('https://uol.com.br')
+    return HttpResponseRedirect("https://uol.com.br")
 
 
 def show_code(request, code):
@@ -28,7 +28,7 @@ def show_code(request, code):
 
 
 def cat_status(request, code):
-    return HttpResponseRedirect(f'https://http.cat/{code}')
+    return HttpResponseRedirect(f"https://http.cat/{code}")
 
 
 def show_get_values(request):
@@ -56,5 +56,5 @@ def show_post_values(request):
     <input type="submit" value="Enviar">
     </form> 
     """
-    html_to_response = head+html
+    html_to_response = head + html
     return HttpResponse(html_to_response)

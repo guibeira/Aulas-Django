@@ -7,21 +7,31 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('aula14', '0001_initial'),
+        ("aula14", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Loja',
+            name="Loja",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('cidade', models.CharField(max_length=30)),
-                ('nome', models.CharField(max_length=30)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("cidade", models.CharField(max_length=30)),
+                ("nome", models.CharField(max_length=30)),
             ],
         ),
         migrations.AddField(
-            model_name='carros',
-            name='loja',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='aula14.Loja'),
+            model_name="carros",
+            name="loja",
+            field=models.ForeignKey(
+                null=True, on_delete=django.db.models.deletion.CASCADE, to="aula14.Loja"
+            ),
         ),
     ]

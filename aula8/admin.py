@@ -5,10 +5,10 @@ from .models import Pet
 
 
 class PetAdmin(admin.ModelAdmin):
-    fields = ('nome', 'data_nascimento', 'ativo')
-    list_display = ('nome', 'data_nascimento', 'show_and_year', 'ativo')
-    list_filter = ('ativo', )
-    search_fields = ('nome', )
+    fields = ("nome", "data_nascimento", "ativo")
+    list_display = ("nome", "data_nascimento", "show_and_year", "ativo")
+    list_filter = ("ativo",)
+    search_fields = ("nome",)
     form = PetForm
 
     def show_and_year(self, obj):

@@ -10,6 +10,6 @@ class Pet(models.Model):
         return self.nome
 
     class Meta:
-        verbose_name = 'Animal'
-        verbose_name_plural = 'Animais'
-        ordering = ['ativo']
+        verbose_name = "Animal"
+        verbose_name_plural = "Animais"
+        ordering = ["ativo"]

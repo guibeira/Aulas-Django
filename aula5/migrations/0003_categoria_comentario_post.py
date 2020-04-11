@@ -7,33 +7,65 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('aula5', '0002_auto_20200229_1333'),
+        ("aula5", "0002_auto_20200229_1333"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Categoria',
+            name="Categoria",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome', models.CharField(max_length=30)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nome", models.CharField(max_length=30)),
             ],
         ),
         migrations.CreateModel(
-            name='Post',
+            name="Post",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('titulo', models.CharField(max_length=30)),
-                ('texto', models.TextField()),
-                ('categorias', models.ManyToManyField(related_name='posts', to='aula5.Categoria')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("titulo", models.CharField(max_length=30)),
+                ("texto", models.TextField()),
+                (
+                    "categorias",
+                    models.ManyToManyField(related_name="posts", to="aula5.Categoria"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Comentario',
+            name="Comentario",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('autor', models.CharField(max_length=30)),
-                ('comentario', models.TextField()),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='aula5.Post')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("autor", models.CharField(max_length=30)),
+                ("comentario", models.TextField()),
+                (
+                    "post",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="aula5.Post"
+                    ),
+                ),
             ],
         ),
     ]

@@ -3,8 +3,8 @@ from django.urls import reverse
 
 # Create your tests here.
 
-class TestIndexView(TestCase):
 
+class TestIndexView(TestCase):
     def setUp(self):
         self.url = reverse("aula9")
 

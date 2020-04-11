@@ -5,12 +5,5 @@ from django.views.generic.base import TemplateView
 
 
 def index(request):
-    context = {
-        "alunos": [
-            "joao",
-            "maria",
-            "josé",
-            "pedro",
-        ]
-    }
-    return render(request, 'aula4/index.html', context=context)
+    context = {"alunos": ["joao", "maria", "josé", "pedro",]}
+    return render(request, "aula4/index.html", context=context)

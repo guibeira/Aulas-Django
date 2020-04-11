@@ -6,17 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('aula8', '0001_initial'),
+        ("aula8", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='pet',
-            options={'verbose_name': 'Animal', 'verbose_name_plural': 'Animais'},
+            name="pet",
+            options={"verbose_name": "Animal", "verbose_name_plural": "Animais"},
         ),
         migrations.AddField(
-            model_name='pet',
-            name='ativo',
-            field=models.BooleanField(default=True),
+            model_name="pet", name="ativo", field=models.BooleanField(default=True),
         ),
     ]

@@ -6,46 +6,58 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('aula11', '0004_userinfo'),
+        ("aula11", "0004_userinfo"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Destinatatio',
+            name="Destinatatio",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('criado_em', models.DateTimeField(auto_now_add=True)),
-                ('atualizado_em', models.DateTimeField(auto_now=True)),
-                ('rua', models.CharField(max_length=50)),
-                ('numero', models.CharField(max_length=10)),
-                ('bairro', models.CharField(max_length=50)),
-                ('cidade', models.CharField(max_length=50)),
-                ('estado', models.CharField(max_length=2)),
-                ('nome', models.CharField(max_length=30)),
-                ('telefone', models.CharField(max_length=30)),
-                ('cpf', models.CharField(max_length=15)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("criado_em", models.DateTimeField(auto_now_add=True)),
+                ("atualizado_em", models.DateTimeField(auto_now=True)),
+                ("rua", models.CharField(max_length=50)),
+                ("numero", models.CharField(max_length=10)),
+                ("bairro", models.CharField(max_length=50)),
+                ("cidade", models.CharField(max_length=50)),
+                ("estado", models.CharField(max_length=2)),
+                ("nome", models.CharField(max_length=30)),
+                ("telefone", models.CharField(max_length=30)),
+                ("cpf", models.CharField(max_length=15)),
             ],
-            options={
-                'abstract': False,
-            },
+            options={"abstract": False,},
         ),
         migrations.CreateModel(
-            name='Remetente',
+            name="Remetente",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('criado_em', models.DateTimeField(auto_now_add=True)),
-                ('atualizado_em', models.DateTimeField(auto_now=True)),
-                ('rua', models.CharField(max_length=50)),
-                ('numero', models.CharField(max_length=10)),
-                ('bairro', models.CharField(max_length=50)),
-                ('cidade', models.CharField(max_length=50)),
-                ('estado', models.CharField(max_length=2)),
-                ('nome', models.CharField(max_length=30)),
-                ('telefone', models.CharField(max_length=30)),
-                ('cnpj', models.CharField(max_length=15)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("criado_em", models.DateTimeField(auto_now_add=True)),
+                ("atualizado_em", models.DateTimeField(auto_now=True)),
+                ("rua", models.CharField(max_length=50)),
+                ("numero", models.CharField(max_length=10)),
+                ("bairro", models.CharField(max_length=50)),
+                ("cidade", models.CharField(max_length=50)),
+                ("estado", models.CharField(max_length=2)),
+                ("nome", models.CharField(max_length=30)),
+                ("telefone", models.CharField(max_length=30)),
+                ("cnpj", models.CharField(max_length=15)),
             ],
-            options={
-                'abstract': False,
-            },
+            options={"abstract": False,},
         ),
     ]

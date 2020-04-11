@@ -10,7 +10,7 @@ class MyMiddleware(object):
 
         print(f"Acessando a url {request.path}")
         response = self.get_response(request)
-       
+
         return response
 
 
@@ -23,5 +23,5 @@ class LoginRequiredMiddleware(object):
             return HttpResponseRedirect(settings.LOGIN_URL)
 
         response = self.get_response(request)
-       
+
         return response

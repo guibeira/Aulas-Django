@@ -34,15 +34,15 @@ class Comentario(models.Model):
 
     def __str__(self):
         return f"{self.autor} no post {self.post}"
- 
+
 
 class Carrinho(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
-    
+
     @property
     def total(self):
-        total = self.produto_set.all().aggregate(models.Sum('preco'))
-        return total['preco__sum']
+        total = self.produto_set.all().aggregate(models.Sum("preco"))
+        return total["preco__sum"]
 
 
 class Produto(models.Model):

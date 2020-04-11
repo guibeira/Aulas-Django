@@ -1,4 +1,3 @@
-
 def test_status_code(response_aula9_view):
     assert response_aula9_view.status_code == 200
 
