@@ -143,3 +143,9 @@ INTERNAL_IPS = [
 
 
 SESSION_ENGINE="django.contrib.sessions.backends.signed_cookies"
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ]
+}
