@@ -57,17 +57,8 @@ class PersmissionSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class UserSeriaizer(serializers.ModelSerializer):
-    user_permissions = PersmissionSerializer(required=True)
+class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ["username", "user_permissions"] 
-
-    def create(self, data, *args, **kwargs):
-        with transaction.atomic():
-            user = User.objects.create(username=data.pop('username'))
-            permisison, _ = Permission.objects.get_or_create(**data['user_permissions'])
-            user.user_permissions.add(permisison)
-        return self.validated_data
-
+        fields = "__all__" 
