@@ -24,3 +24,27 @@ class MyCustomSerializer(serializers.Serializer):
         if 'babanao' in value.lower():
             raise serializers.ValidationError("Seu boca suja!")
         return value
+
+
+class AddressSerializer(serializers.Serializer):
+    choices = (
+        ('residencial', 'residencia'),
+        ('comercial', 'comercial'),
+    )
+    street = serializers.CharField(max_length=30)
+    number = serializers.IntegerField()
+    neighborhood = serializers.CharField(max_length=30)
+    city = serializers.CharField(max_length=30)
+    cowntry = serializers.CharField(max_length=2)
+    address_type = serializers.ChoiceField(choices) 
+
+
+class ClientSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=30)
+    phone = serializers.CharField(max_length=30)
+    address = AddressSerializer(required=True, many=True)
+
+    def create(self, *args, **kwags):
+        return self.validated_data
+
+
