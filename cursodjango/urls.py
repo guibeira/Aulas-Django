@@ -31,6 +31,8 @@ from aula13.views import aula13, aula13_com_model_form, OlistRedirect, aula13_se
 from aula14.api import CarrosViewSet
 from aula14.views import LojaViewSet
 from aula15.api import SerializerTestView, UserViewSet
+from aula15.authentication import GetTokenAndExtraInfo
+
 
 routes = routers.DefaultRouter()
 routes.register(r"carros", CarrosViewSet)
@@ -55,7 +57,8 @@ urlpatterns = [
     path('aula14-a', LojaViewSet.as_view(), name="aula14-a"),
     path('aula15', SerializerTestView.as_view(), name="aula15"),
     # api
-    path('v1/', include(routes.urls))
+    path('v1/', include(routes.urls)),
+    path('v1/cade-meu-token', GetTokenAndExtraInfo.as_view()),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

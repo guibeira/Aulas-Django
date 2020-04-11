@@ -57,8 +57,9 @@ LOCAL_APPS = [
 ]
 
 EXTERNAL_APPS = [
-    'debug_toolbar',
+    # 'debug_toolbar',
     'rest_framework',
+    'rest_framework.authtoken'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + EXTERNAL_APPS
