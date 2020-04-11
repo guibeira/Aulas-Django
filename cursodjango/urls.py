@@ -30,6 +30,7 @@ from aula11.views import aula11, PostDetailView
 from aula13.views import aula13, aula13_com_model_form, OlistRedirect, aula13_session
 from aula14.api import CarrosViewSet
 from aula14.views import UserViewset, LojaViewSet
+from aula15.api import SerializerTestView
 
 routes = routers.DefaultRouter()
 routes.register(r"carros", CarrosViewSet)
@@ -51,7 +52,8 @@ urlpatterns = [
     path('aula11/<str:slug>', PostDetailView.as_view()),
     path('aula13', include("aula13.urls")),
     path('aula14', UserViewset.as_view(), name="aula14"),
-    path('aula15', LojaViewSet.as_view(), name="aula15"),
+    path('aula14-a', LojaViewSet.as_view(), name="aula14-a"),
+    path('aula15', SerializerTestView.as_view(), name="aula15"),
     # api
     path('v1/', include(routes.urls))
     
