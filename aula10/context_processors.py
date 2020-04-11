@@ -1,5 +1,6 @@
-from aula8.models import Pet
 from django.utils import timezone
+
+from aula8.models import Pet
 
 
 def total_pets(request):

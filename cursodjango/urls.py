@@ -14,25 +14,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.contrib import admin
-from django.urls import path, include
-from django.conf.urls.static import static
 from django.conf import settings
-
+from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import include, path
 from rest_framework import routers
 
 from aula4.views import index
-from aula6.views import index as index6, editar_contato
-from aula7.views import index as index7, restrita, logout_view, permission_view
+from aula6.views import editar_contato
+from aula6.views import index as index6
+from aula7.views import index as index7
+from aula7.views import logout_view, permission_view, restrita
 from aula9.views import index9
 from aula10.views import mostra_arquivo_estatico
-from aula11.views import aula11, PostDetailView
-from aula13.views import aula13, aula13_com_model_form, OlistRedirect, aula13_session
+from aula11.views import PostDetailView, aula11
+from aula13.views import (OlistRedirect, aula13, aula13_com_model_form,
+                          aula13_session)
 from aula14.api import CarrosViewSet
 from aula14.views import LojaViewSet
 from aula15.api import SerializerTestView, UserViewSet
 from aula15.authentication import GetTokenAndExtraInfo
-
 
 routes = routers.DefaultRouter()
 routes.register(r"carros", CarrosViewSet)

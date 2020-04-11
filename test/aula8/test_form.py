@@ -1,6 +1,8 @@
-from aula8.forms import PetForm
 from datetime import date
+
 import pytest
+
+from aula8.forms import PetForm
 
 
 def test_pet_form():

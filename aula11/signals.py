@@ -1,8 +1,9 @@
-from django.db.models.signals import post_save, post_delete, pre_save
-from django.dispatch import receiver
 from django.contrib.auth.models import User
-from .models import UserProfile, Automovel
+from django.db.models.signals import post_delete, post_save, pre_save
+from django.dispatch import receiver
 from slugify import slugify
+
+from .models import Automovel, UserProfile
 
 
 @receiver(pre_save, sender=Automovel)

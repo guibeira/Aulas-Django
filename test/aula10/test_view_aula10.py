@@ -1,5 +1,6 @@
-from django.urls import reverse
 from unittest import mock
+
+from django.urls import reverse
 
 
 @mock.patch("aula10.context_processors.total_pets")

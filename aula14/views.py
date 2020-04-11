@@ -1,13 +1,15 @@
-from django.shortcuts import render
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from django.forms.models import model_to_dict
+from django.shortcuts import render
 from rest_framework import serializers
+from rest_framework.decorators import api_view
+from rest_framework.generics import CreateAPIView, ListAPIView
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from .models import Loja
 from .serializer import LojaSerializer
-from rest_framework.generics import ListAPIView, CreateAPIView
+
 # Create your views here.
 
 

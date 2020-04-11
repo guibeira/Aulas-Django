@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.urls import reverse
+
 # Create your tests here.
 
 class TestIndexView(TestCase):
@@ -19,6 +20,3 @@ class TestIndexView(TestCase):
     def test_context(self):
         response = self.client.get(self.url)
         self.assertEqual("Guilherme", response.context["nome"])
-
-
-

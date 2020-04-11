@@ -1,5 +1,6 @@
 from django import template
 from django.template.defaultfilters import stringfilter
+
 from aula8.models import Pet
 
 register = template.Library()

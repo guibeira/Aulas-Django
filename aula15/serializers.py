@@ -1,6 +1,6 @@
-from rest_framework import serializers
-from django.contrib.auth.models import User, Permission
+from django.contrib.auth.models import Permission, User
 from django.db import transaction
+from rest_framework import serializers
 
 
 class MyCustomSerializer(serializers.Serializer):

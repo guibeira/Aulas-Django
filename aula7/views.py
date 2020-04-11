@@ -1,9 +1,10 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from .forms import UserLoginForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required, permission_required
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
+
+from .forms import UserLoginForm
 
 
 @permission_required('aula5.add_carrinho', login_url=reverse_lazy("login"))
@@ -36,4 +37,3 @@ def restrita(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse("login"))
-

@@ -1,7 +1,8 @@
-from django.db import models
 from django.contrib.auth.models import User
-from .managers import CustomPostManager, TecPostManager
+from django.db import models
 from django.utils import timezone
+
+from .managers import CustomPostManager, TecPostManager
 
 
 class SoftDelete(models.Model):

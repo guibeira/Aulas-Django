@@ -1,10 +1,12 @@
-from django.shortcuts import render
-from django.views.generic.base import RedirectView
-from .forms import UploadFileForm, UploadFileModelForm
-from .models import UploadFile
+import os
+
 # Create your views here.
 from django.conf import settings
-import os
+from django.shortcuts import render
+from django.views.generic.base import RedirectView
+
+from .forms import UploadFileForm, UploadFileModelForm
+from .models import UploadFile
 
 
 class OlistRedirect(RedirectView):
@@ -54,4 +56,3 @@ def handle_uploaded_file(f):
     with open(os.path.join(settings.MEDIA_ROOT, f.name), 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
-

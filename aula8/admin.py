@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import Pet
+
 from .forms import PetForm
+from .models import Pet
+
 
 class PetAdmin(admin.ModelAdmin):
     fields = ('nome', 'data_nascimento', 'ativo')

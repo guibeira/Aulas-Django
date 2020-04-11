@@ -6,4 +6,3 @@ class Aula11Config(AppConfig):
 
     def ready(self):
         import aula11.signals
-

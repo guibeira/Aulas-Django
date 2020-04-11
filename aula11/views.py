@@ -1,8 +1,8 @@
 
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
-from .models import Post
 
+from .models import Post
 
 
 def aula11(request):
@@ -16,5 +16,3 @@ class PostDetailView(DetailView):
 
     def get_slug_field(self):
         return "title"
-
-    
