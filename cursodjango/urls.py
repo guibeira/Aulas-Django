@@ -16,6 +16,7 @@ Including another URLconf
 
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic.base import RedirectView
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
@@ -33,13 +34,15 @@ from aula14.api import CarrosViewSet
 from aula14.views import LojaViewSet
 from aula15.api import SerializerTestView, UserViewSet
 from aula15.authentication import GetTokenAndExtraInfo
+from aula16.api import HeroViewSet
 
 routes = routers.DefaultRouter()
 routes.register(r"carros", CarrosViewSet)
 routes.register(r"users", UserViewSet)
-
+from django.urls import reverse_lazy
 
 urlpatterns = [
+    path("redireciona", RedirectView.as_view(url=reverse_lazy('herois-list'))),
     path("admin/", admin.site.urls),
     path("", include("aula3.urls")),
     path("estatico", mostra_arquivo_estatico, name="aula10"),
@@ -61,3 +64,7 @@ urlpatterns = [
     path("v1/cade-meu-token", GetTokenAndExtraInfo.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+simple_router = routers.SimpleRouter()
+simple_router.register(r'v1/hero', HeroViewSet, basename="herois")
+
+urlpatterns += simple_router.urls

@@ -55,6 +55,7 @@ LOCAL_APPS = [
     "aula12",
     "aula13",
     "aula14",
+    "aula16",
 ]
 
 EXTERNAL_APPS = [
@@ -144,5 +145,4 @@ INTERNAL_IPS = [
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated",]
 }
