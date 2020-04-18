@@ -1,12 +1,17 @@
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.throttling import AnonRateThrottle
+from rest_framework.throttling import AnonRateThrottle, UserRateThrottle, ScopedRateThrottle
 from .models import Hero
 from .serializers import HeroSerializer
 
 
-class HeroViewSet(ModelViewSet):
+class ModelHoreScopeViewSet(ModelViewSet):
+    throttle_classes = [ScopedRateThrottle, AnonRateThrottle]
+    throttle_scope = "heros"
+
+
+class HeroViewSet(ModelHoreScopeViewSet):
     model = Hero
     serializer_class = HeroSerializer
     queryset = Hero.objects.all()
