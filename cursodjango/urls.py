@@ -43,26 +43,21 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("aula3.urls")),
     path("estatico", mostra_arquivo_estatico, name="aula10"),
-    path("aula4", index),
-    path("aula6", index6),
+    path("aula4/", index),
+    path("aula6/", index6),
     path("aula6/<int:id>", editar_contato),
-    path("entrar", index7, name="login"),
-    path("aula7/restrita", restrita),
-    path("aula7/view-carrinho", permission_view),
-    path("aula7/sair", logout_view, name="logout"),
-    path("aula9", index9, name="aula9"),
-    path("aula11", aula11, name="aula11"),
+    path("entrar/", index7, name="login"),
+    path("aula7/restrita/", restrita),
+    path("aula7/view-carrinho/", permission_view),
+    path("aula7/sair/", logout_view, name="logout"),
+    path("aula9/", index9, name="aula9"),
+    path("aula11/", aula11, name="aula11"),
     path("aula11/<str:slug>", PostDetailView.as_view()),
-    path("aula13", include("aula13.urls")),
-    path("aula14-a", LojaViewSet.as_view(), name="aula14-a"),
-    path("aula15", SerializerTestView.as_view(), name="aula15"),
+    path("aula13/", include("aula13.urls")),
+    path("aula14-a/", LojaViewSet.as_view(), name="aula14-a"),
+    path("aula15/", SerializerTestView.as_view(), name="aula15"),
     # api
     path("v1/", include(routes.urls)),
     path("v1/cade-meu-token", GetTokenAndExtraInfo.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-
-if settings.DEBUG:
-    import debug_toolbar
-
-    urlpatterns = [path("__debug__/", include(debug_toolbar.urls)),] + urlpatterns
