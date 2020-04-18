@@ -32,7 +32,7 @@ class HeroViewSet(ModelViewSet):
     throttle_classes = [MyCustomThrottle]
     model = Hero
     serializer_class = HeroSerializer
-    filter_backends = [CustomFilter, OrderingFilter, SearchFilter]
+    filter_backends = [OrderingFilter, SearchFilter]
     queryset = Hero.objects.all()
     filterset_fields = ["name", "super_power"]    
     search_fields = ["name", "super_power", "city"]
