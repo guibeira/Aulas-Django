@@ -1,5 +1,7 @@
+import time
+from random import randint
 from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
+from django.core.cache import cache
 from django.contrib.auth.models import User
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.models import Token
@@ -17,11 +19,15 @@ class GetTokenAndExtraInfo(ObtainAuthToken):
         payload = {"token": token.key, "user_id": user.pk, "email": user.email}
         return Response(payload)
 
-    @method_decorator(cache_page(5))
     def get(self, request):
-        users = User.objects.all()
-        user = users[0]
-        return Response({"email": user.email})
+        cached_result = cache.get("result")
+        if cached_result:
+            result_calc = cached_result
+        else:
+            time.sleep(10)
+            result_calc = randint(0, 100)
+            cache.add("result", result_calc, timeout=15)
+        return Response({"amount": result_calc})
 
 
 class BearerTokenAuthentication(TokenAuthentication):
