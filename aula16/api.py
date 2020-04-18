@@ -1,11 +1,19 @@
+from rest_framework.filters import SearchFilter, OrderingFilter, BaseFilterBackend
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.throttling import (AnonRateThrottle, ScopedRateThrottle,
                                        UserRateThrottle, BaseThrottle)
 from rest_framework.viewsets import ModelViewSet
+from django_filters.rest_framework import DjangoFilterBackend
 
 from .models import Hero
 from .serializers import HeroSerializer
+
+
+class CustomFilter(BaseFilterBackend):
+
+    def filter_queryset(self, request, queryset, view):
+        return queryset.filter(name="Batman")
 
 
 class MyCustomThrottle(BaseThrottle):
@@ -20,12 +28,15 @@ class ModelHoreScopeViewSet(ModelViewSet):
     throttle_scope = "heros"
 
 
-
 class HeroViewSet(ModelViewSet):
     throttle_classes = [MyCustomThrottle]
     model = Hero
     serializer_class = HeroSerializer
+    filter_backends = [CustomFilter, OrderingFilter, SearchFilter]
     queryset = Hero.objects.all()
+    filterset_fields = ["name", "super_power"]    
+    search_fields = ["name", "super_power", "city"]
+    ordering_fields = ["name", "super_power", "city"]
 
     @action(methods=["get"], detail=False, url_path="poderes")
     def show_list_hero_powers(self, request):
