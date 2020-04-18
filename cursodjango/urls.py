@@ -16,9 +16,9 @@ Including another URLconf
 
 from django.conf import settings
 from django.conf.urls.static import static
-from django.views.generic.base import RedirectView
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, reverse_lazy
+from django.views.generic.base import RedirectView
 from rest_framework import routers
 
 from aula4.views import index
@@ -29,7 +29,8 @@ from aula7.views import logout_view, permission_view, restrita
 from aula9.views import index9
 from aula10.views import mostra_arquivo_estatico
 from aula11.views import PostDetailView, aula11
-from aula13.views import OlistRedirect, aula13, aula13_com_model_form, aula13_session
+from aula13.views import (OlistRedirect, aula13, aula13_com_model_form,
+                          aula13_session)
 from aula14.api import CarrosViewSet
 from aula14.views import LojaViewSet
 from aula15.api import SerializerTestView, UserViewSet
@@ -39,7 +40,6 @@ from aula16.api import HeroViewSet
 routes = routers.DefaultRouter()
 routes.register(r"carros", CarrosViewSet)
 routes.register(r"users", UserViewSet)
-from django.urls import reverse_lazy
 
 urlpatterns = [
     path("redireciona", RedirectView.as_view(url=reverse_lazy('herois-list'))),
@@ -64,7 +64,6 @@ urlpatterns = [
     path("v1/cade-meu-token", GetTokenAndExtraInfo.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-simple_router = routers.SimpleRouter()
-simple_router.register(r'v1/hero', HeroViewSet, basename="herois")
+routes.register(r'v1/hero', HeroViewSet, basename="herois")
 
-urlpatterns += simple_router.urls
+urlpatterns += routes.urls
