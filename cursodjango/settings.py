@@ -149,8 +149,7 @@ REST_FRAMEWORK = {
         "rest_framework.throttling.AnonRateThrottle",
     ],
     "DEFAULT_THROTTLE_RATES": {
-        "anon": "5/hour",
-        "user": "3/day",
-        "heros": "10/hour",
+        "anon": "12/hour",
+        "heros": "5/hour",
     }
 }

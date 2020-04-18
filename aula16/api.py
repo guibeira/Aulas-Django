@@ -1,17 +1,28 @@
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.throttling import (AnonRateThrottle, ScopedRateThrottle,
+                                       UserRateThrottle, BaseThrottle)
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.throttling import AnonRateThrottle, UserRateThrottle, ScopedRateThrottle
+
 from .models import Hero
 from .serializers import HeroSerializer
 
 
+class MyCustomThrottle(BaseThrottle):
+
+    def allow_request(self, request, view):
+        # regra de x request por x tempo
+        return True
+
+
 class ModelHoreScopeViewSet(ModelViewSet):
-    throttle_classes = [ScopedRateThrottle, AnonRateThrottle]
+    throttle_classes = [ScopedRateThrottle]
     throttle_scope = "heros"
 
 
-class HeroViewSet(ModelHoreScopeViewSet):
+
+class HeroViewSet(ModelViewSet):
+    throttle_classes = [MyCustomThrottle]
     model = Hero
     serializer_class = HeroSerializer
     queryset = Hero.objects.all()
